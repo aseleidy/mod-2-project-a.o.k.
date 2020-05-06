@@ -31,6 +31,15 @@ class ItinerariesController < ApplicationController
     redirect_to itineraries_path
   end 
 
+  def like
+    find_itin
+    @itinerary.likes += 1
+    @itinerary.save
+    redirect_to @itinerary
+  end
+
+
+
   private 
   
   def itin_params
