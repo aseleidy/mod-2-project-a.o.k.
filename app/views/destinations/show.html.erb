@@ -2,6 +2,23 @@
 <h1><%= @destination.city %></h1>
 <h4><%= @destination.country %></h4>
 
-<% @destination.itineraries.each do |itinerary| %>
-<%= link_to itinerary.title, itinerary %>
-<% end %>
+
+<h4>Likes: <%= @destination.likes %></h4>
+<br>
+<%= link_to "Like", destination_like_path %>
+
+
+<p>Recent Itineraries:</p>
+  <ul>
+    <% @destination.five_itineraries.each do |itin| %>
+      <div class="recent-itineraries">
+        <%= link_to itin.title, itinerary_path(itin) %>
+      </div>
+    <% end %>
+  </ul>
+<br><br>
+<p>Most Popular Places:</p>
+  <% @destination.most_popular_places.each do |place| %>
+    <img src="<%= place.img_url %>" alt="<%= @destination.city %> pic">
+    <%= link_to place.name, place_path(place) %>
+  <% end %>

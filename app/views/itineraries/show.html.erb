@@ -1,6 +1,7 @@
 <h1><%= @itinerary.title %></h1>
-<h4>Destination: <%= @itinerary.destination.city %>, <%= @itinerary.destination.country %></h4>
+<h4>Destination: <%= link_to @itinerary.destination.full_info, destination_path(@itinerary.destination) %></h4>
 <h4>Travelers: <%= @itinerary.fellow_traveler_first_names %></h4>
+<h4>Likes: <%= @itinerary.likes %></h4>
 <br>
 <% @itinerary.places.each do |place| %> 
   <p> <%= link_to place.name, place.url %> </p>
@@ -9,3 +10,5 @@
   <br>
 <%= link_to "Add New Place", new_itinerary_place_path(@itinerary) %>
 <%= link_to "Delete Itinerary", itinerary_path, method: "delete" %>
+<%= link_to "Like", itinerary_like_path %>
+<%= link_to "Delete", itinerary_path, method: "delete" %>

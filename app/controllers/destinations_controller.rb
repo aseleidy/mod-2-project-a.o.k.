@@ -5,5 +5,15 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Destination.find(params[:id]) 
-  end 
+  end
+  
+  def like
+    @destination = Destination.find(params[:id])
+    @destination.likes += 1
+    @destination.save
+    redirect_to @destination
+  end
+
+
+
 end 
