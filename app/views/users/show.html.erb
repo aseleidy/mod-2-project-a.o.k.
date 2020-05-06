@@ -1,0 +1,12 @@
+<p><h1>Hello, <%= @user.first_name %>!</h1></p>
+
+<strong><p><%= link_to "+ Itinerary", new_itinerary_path %></p></strong>
+<br>
+<p>Active Itineraries:</p>
+<% @user.itineraries.each do |itin| %>
+  <ul>
+    <li>
+      <%= link_to itin.title, itin %><br>
+    </li>
+  </ul>
+<% end %>

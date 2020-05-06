@@ -1,0 +1,5 @@
+<h1><%= @itinerary.title %></h1>
+<h4>Destination: <%= @itinerary.destination.city %>, <%= @itinerary.destination.country %></h4>
+<h4>Travelers: <%= @itinerary.fellow_traveler_first_names %></h4>
+<br>
+<%= link_to "Delete", itinerary_path, method: "delete" %>

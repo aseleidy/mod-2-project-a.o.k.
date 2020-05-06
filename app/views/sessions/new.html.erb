@@ -1,0 +1,16 @@
+<h1>Welcome to Travel Planner!</h1>
+<br>
+<p style="color: red"><%= flash[:message] %></p>
+<br>
+<%= form_tag login_path do %>
+  <%= label_tag :username, "Username:" %>
+  <%= text_field_tag :username %><br>
+  <br>
+  <%= label_tag :password, "Password:" %>
+  <%= password_field_tag :password %><br>
+  <br>
+  <%= submit_tag "Sign In"%>
+
+<% end %> 
+<br>
+<p>If you are a new user, please <%= link_to "create an account", new_user_path %>.</p>

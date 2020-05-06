@@ -1,0 +1,8 @@
+<h1>Destinations</h1>
+<% @destinations.each do |dest| %>
+  <ul>
+    <li>
+      <%= link_to dest.city, dest %>
+    </li>
+  </ul>
+<% end %>
