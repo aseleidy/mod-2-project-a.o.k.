@@ -1,0 +1,27 @@
+<!-- t.string :name
+t.string :category
+t.string :url
+t.string :img_url
+
+-->
+Name:
+<%= @place.name %><br>
+Category:
+<%= @place.category %><br>
+Url:
+<%= @place.url %>
+Image:
+<img src="<%= place.img_url %>" alt="<%= @place.name %> pic">
+<ul>
+<% @place.comments.each do |comment|%>
+    <li><%= User.find(comment.user_id).username %> says: <br></li>
+    <%= comment.content %>
+<% end %>
+</ul>
+<h1>Leave Comment</h1>
+<!--I haven't figured out how to get a partial to render from a different controller yet, but the comments partial ought to be here.-->
+
+
+
+
+

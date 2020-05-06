@@ -1,0 +1,14 @@
+<!--in the final product comments should be nested in places, and this form should render at the bottom of the place show page -->
+
+<%= form_for comment do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+<% end %>
+
+
+<!-- This is what kyle had for identifying the itinerary parameter in the URL I think:
+
+<%= f.hidden_field :identify, value: itin.id %>
+
+-->
