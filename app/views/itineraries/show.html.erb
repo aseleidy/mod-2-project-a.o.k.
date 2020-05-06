@@ -2,4 +2,10 @@
 <h4>Destination: <%= @itinerary.destination.city %>, <%= @itinerary.destination.country %></h4>
 <h4>Travelers: <%= @itinerary.fellow_traveler_first_names %></h4>
 <br>
-<%= link_to "Delete", itinerary_path, method: "delete" %>
+<% @itinerary.places.each do |place| %> 
+  <p> <%= link_to place.name, place.url %> </p>
+  <img class="place-images" src="<%=place.img_url%>" alt="Image of <%=place.name%>">
+  <% end %>
+  <br>
+<%= link_to "Add New Place", new_itinerary_place_path(@itinerary) %>
+<%= link_to "Delete Itinerary", itinerary_path, method: "delete" %>
