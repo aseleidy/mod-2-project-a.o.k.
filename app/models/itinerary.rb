@@ -16,11 +16,7 @@ class Itinerary < ApplicationRecord
     itin_travelers.join(', ')
   end 
 
-  def set_likes_to_zero
-    if self.likes == nil 
-      self.likes = 0 
-    end 
-  end 
+
 
   # def likes= 
   #   if self.likes == nil 

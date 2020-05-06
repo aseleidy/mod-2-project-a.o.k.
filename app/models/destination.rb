@@ -1,6 +1,7 @@
 class Destination < ApplicationRecord
   has_many :places
   has_many :itineraries 
+  before_validation :set_likes_to_zero
 
   def self.sort_alpha
     Destination.all.sort_by do |dest|
@@ -30,4 +31,12 @@ class Destination < ApplicationRecord
 
     sorted_destinations.reverse
   end 
+
+
+  def self.most_liked
+    sorted_destinations = Destination.all.sort_by do |dest|
+      dest.likes 
+    end
+    sorted_destinations.reverse
+  end
 end

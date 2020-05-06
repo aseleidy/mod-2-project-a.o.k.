@@ -1,7 +1,7 @@
 <h1><%= @itinerary.title %></h1>
-<h4>Destination: <%= @itinerary.destination.city %>, <%= @itinerary.destination.country %></h4>
+<h4>Destination: <%= link_to @itinerary.destination.full_info, destination_path(@itinerary.destination) %></h4>
 <h4>Travelers: <%= @itinerary.fellow_traveler_first_names %></h4>
 <h4>Likes: <%= @itinerary.likes %></h4>
 <br>
-<%=%>
+<%= link_to "Like", itinerary_like_path %>
 <%= link_to "Delete", itinerary_path, method: "delete" %>

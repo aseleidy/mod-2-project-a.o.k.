@@ -2,6 +2,12 @@
 <h1><%= @destination.city %></h1>
 <h4><%= @destination.country %></h4>
 
+
+<h4>Likes: <%= @destination.likes %></h4>
+<br>
+<%= link_to "Like", destination_like_path %>
+
+
 <p>Recent Itineraries:</p>
   <ul>
     <% @destination.five_itineraries.each do |itin| %>

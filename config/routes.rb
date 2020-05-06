@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
+  get '/itineraries/:id/like', to: 'itineraries#like', as: 'itinerary_like'
+  get '/destinations/:id/like', to: 'destinations#like', as: 'destination_like'
 end
