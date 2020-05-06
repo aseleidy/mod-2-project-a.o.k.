@@ -22,4 +22,12 @@ class Destination < ApplicationRecord
     end 
     places_popularity.last(10)
   end 
+
+  def self.most_popular
+    sorted_destinations = Destination.all.sort_by do |dest|
+      dest.itineraries.count
+    end 
+
+    sorted_destinations.reverse
+  end 
 end

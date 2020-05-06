@@ -5,9 +5,9 @@
 <p>Recent Itineraries:</p>
   <ul>
     <% @destination.five_itineraries.each do |itin| %>
-      <li>
+      <div class="recent-itineraries">
         <%= link_to itin.title, itinerary_path(itin) %>
-      </li>
+      </div>
     <% end %>
   </ul>
 <br><br>
