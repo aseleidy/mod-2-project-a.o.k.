@@ -1,0 +1,16 @@
+<%= form_for place do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+   <select name="category" id="category">
+    <option value="bar">Bar</option>
+    <option value="restaurant">Restaurant</option>
+    <option value="attraction">Attraction</option>
+    <option value="other">Other</option>
+   </select>
+  <%= f.label :url, "Place URL" %> 
+  <%= f.text_field :url %>
+  <%= f.label :img_url, "Image URL" %> 
+  <%= f.text_field :img_url %> 
+  <%= f.hidden_field :identify, value: itin.id %>
+  <%= f.submit "Create Place" %>
+  <% end %>
