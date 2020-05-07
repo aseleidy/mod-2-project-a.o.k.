@@ -22,3 +22,12 @@
     <img src="<%= place.img_url %>" alt="<%= @destination.city %> pic">
     <%= link_to place.name, place %>
   <% end %>
+
+
+  <p>Trending Places:</p>
+    <% if @destination.comments.count > 1 %>
+      <% @destination.trending_places.each do |place| %>
+        <img src="<%= place.img_url %>" alt="<%= @destination.city %> pic"><br>
+        <%= link_to place.name, place %><br>
+      <% end %>
+  <% end %>

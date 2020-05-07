@@ -25,3 +25,12 @@ to have the sorted list either here or on it's own route. -->
 <% end %>
 </ul>
 
+<ul><h1>Trending Destinations:</h1>
+<% if Comment.all.count > 0 %>
+  <% Destination.trending.each do |destination| %>
+    <li><%= link_to destination.full_info, destination %></li><br>
+  <% end %>
+<% end %>
+
+<!-- trending destinations is based on recent comment count. 
+Of the most recent 20 percent of comments, the destinations are listed by the ones with the most comment hits. -->
