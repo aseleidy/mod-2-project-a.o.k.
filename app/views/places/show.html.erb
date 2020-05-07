@@ -6,6 +6,17 @@ t.string :img_url
 -->
 
 <h1><%= @place.name %></h1>
+<h4><%= link_to @place.destination.full_info, destination_path(@place.destination) %></h4>
+<h4>Likes: <%= @place.likes %></h4>
+
+<% if @place.url != "" %>
+  <h4><%= link_to "Website", @place.url %></h4><br><br>
+<% end %>
+
+<img src="<%= @place.img_url %>" alt="<%= @place.destination.city %> pic">
+
+<br>
+<%= link_to "Like", place_like_path(@place) %>
 <h4><%= @place.destination.full_info %></h4>
 Category:
 <%= @place.category %><br>
@@ -22,9 +33,3 @@ Image:
 <h1>Leave Comment</h1>
 <%= render partial: "comments/form", locals: {comment: @place.comments.new} %>
 
-
-
-
-
-<h1><%= @place.name %></h1>
-<h4><%= @place.destination.full_info %></h4>

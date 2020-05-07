@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController 
     
     def new
-
        # @itinerary = Itinerary.find(params[:itinerary_id])
         @place = Place.find(params[:place_id])
         @comment = Comment.new

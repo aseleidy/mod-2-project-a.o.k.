@@ -20,6 +20,13 @@ class PlacesController < ApplicationController
       end
   end 
 
+  def like
+    @place = Place.find(params[:id])
+    @place.likes += 1
+    @place.save
+    redirect_to @place
+  end
+
   private 
   
   def itinerary_params
@@ -29,6 +36,5 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(:name, :category, :url, :img_url, :destination_id)
   end
-
 
 end 

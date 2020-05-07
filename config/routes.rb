@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get '/itineraries/:id/like', to: 'itineraries#like', as: 'itinerary_like'
   get '/destinations/:id/like', to: 'destinations#like', as: 'destination_like'
+  get '/places/:id/like', to: 'places#like', as: 'place_like'
 end
