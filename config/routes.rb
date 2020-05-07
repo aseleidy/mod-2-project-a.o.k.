@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :destinations, only: [:index, :show, :new, :create]
-  resources :places, only: [:new, :create]
+  resources :places, only: [:new, :create, :show] do
+    resources :comments
+
+  end
   resources :users
   resources :itineraries do
-    resources :places do 
-      resources :comments 
-    end
+    resources :places 
   end
-  # resources :comments <--comments works when it's set to this route. 
+  # resources :comments 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

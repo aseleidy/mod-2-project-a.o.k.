@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController 
     
     def new
+
+       # @itinerary = Itinerary.find(params[:itinerary_id])
+        @place = Place.find(params[:place_id])
         @comment = Comment.new
     end
     
@@ -15,7 +18,7 @@ class CommentsController < ApplicationController
     def update 
         set_comment
         @comment.update(comment_params)
-        redirect_to @comment
+        redirect_to @place
     end
 
     def show
@@ -24,22 +27,20 @@ class CommentsController < ApplicationController
 
     def delete 
         set_comment
-        @comment.destroy 
-        # redirect_to @place
+        # if current_user.id = @comment.user_id
+            @comment.destroy
+        # else
+        #     flash[:alert] = "This is not yours to delete."
+        redirect_to @place
 
     end
 
     def create
-        @comment = Comment.new(comment_params)
+        @place = Place.find(params[:place_id])
+        @comment = @place.comments.new(comment_params)
         @comment.user_id = current_user.id
-        @comment.place_id = 1
-        #I put 1 as the placeholder, since there needs to be an instance of a place in order for a comment to post, otherwise it won't validate.
-        #Once this is nested, Jess said there's a way to pull it from the URL. 
-        #here is the line I pulled from Kyle's controller:
-        #@itinerary = Itinerary.find(itinerary_params[:identify])
-
         @comment.save
-        redirect_to @comment
+        redirect_to (@place)
     end 
 
     private
@@ -48,9 +49,9 @@ class CommentsController < ApplicationController
         @comment = Comment.find(params[:id])
     end
 #############################################
-    # def place_params
-    #     params.require(:place).permit(:identify)
-    # end 
+    def place_params
+        params.require(:comment).permit(:place_id)
+    end 
 ##############################################
 #I have *no idea* how the above works but it looks like it was kyle's code for figuring out the itinerary parameter, so I adapted it and am testing it for comments.
     def comment_params
@@ -58,3 +59,7 @@ class CommentsController < ApplicationController
     end 
 
 end
+
+
+
+

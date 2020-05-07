@@ -1,2 +1,5 @@
 New Comment:
-<%= render 'form', comment: @comment %>
+<%= render partial: 'form', locals: {place: @place, comment: @comment} %>
+
+
+
