@@ -4,7 +4,7 @@ class Itinerary < ApplicationRecord
   has_many :users, through: :user_itineraries
   has_many :itinerary_places
   has_many :places, through: :itinerary_places
-
+  
   before_validation :set_likes_to_zero
   
 
@@ -17,11 +17,5 @@ class Itinerary < ApplicationRecord
   end 
 
 
-
-  # def likes= 
-  #   if self.likes == nil 
-  #     self.likes = 0 
-  #   end 
-  # end
 
 end

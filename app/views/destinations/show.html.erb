@@ -20,5 +20,5 @@
 <p>Most Popular Places:</p>
   <% @destination.most_popular_places.each do |place| %>
     <img src="<%= place.img_url %>" alt="<%= @destination.city %> pic">
-    <%= link_to place.name, place_path(place) %>
+    <%= link_to place.name, place %>
   <% end %>

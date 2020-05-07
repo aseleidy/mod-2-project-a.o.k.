@@ -9,17 +9,14 @@ class PlacesController < ApplicationController
   end 
 
   def create
-    puts "************************************"
-    p params
-    
     @place = Place.new(place_params)
     @itinerary = Itinerary.find(itinerary_params[:identify])
     @place.itineraries << @itinerary
     @place.destination = @itinerary.destination
       if @place.save
-        redirect_to itinerary_path(@itinerary)
+        redirect_to edit_itinerary_path(@itinerary)
       else 
-        render new_itinerary_place_path(@itinerary)
+        render :new
       end
   end 
 

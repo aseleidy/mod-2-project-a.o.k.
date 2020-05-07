@@ -8,8 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
+    <%= form_tag '/logout' do %>
+      <%= submit_tag "logout" %>
+    <% end %>
+    
+    <% if session[:user_id] %>
+      <% @user = User.find_by(id: session[:user_id]) %>
+      <%= link_to "My Account", @user %>
+    <% end %>
 
     <%= yield %>
   </body>
