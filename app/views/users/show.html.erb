@@ -1,6 +1,7 @@
 <%= link_to "Edit Account", edit_user_path(@user) %>
 <p><h1>Hello, <%= @user.first_name %>!</h1></p>
-
+<p style="color: red"><%= flash[:message] %></p>
+<br>
 <strong><p><%= link_to "+ Itinerary", new_itinerary_path %></p></strong>
 <br>
 <p>Active Itineraries:</p>
@@ -12,7 +13,4 @@
   </ul>
 <% end %>
 
-<%= form_tag '/logout' do %>
-<%= submit_tag "logout" %>
-<% end %> 
 
