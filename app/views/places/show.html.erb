@@ -17,6 +17,12 @@ t.string :img_url
 
 <br>
 <%= link_to "Like", place_like_path(@place) %>
+<h4><%= @place.destination.full_info %></h4>
+Category:
+<%= @place.category %><br>
+Url:
+<%= @place.url %>
+Image:
 
 <ul>
 <% @place.comments.each do |comment|%>

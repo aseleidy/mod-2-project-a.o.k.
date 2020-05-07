@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :destinations, only: [:index, :show, :new, :create]
   resources :places, only: [:new, :create, :show] do
     resources :comments
-
   end
   resources :users
   resources :itineraries do
