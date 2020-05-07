@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Welcome to Travelocity.ru.net. A totally legitimate travel website that will take you anywhere you need to go!
