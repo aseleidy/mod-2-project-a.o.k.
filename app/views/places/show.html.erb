@@ -1,2 +1,29 @@
+<!-- t.string :name
+t.string :category
+t.string :url
+t.string :img_url
+
+-->
+Name:
+<%= @place.name %><br>
+Category:
+<%= @place.category %><br>
+Url:
+<%= @place.url %>
+Image:
+
+<ul>
+<% @place.comments.each do |comment|%>
+    <li><%= User.find(comment.user_id).username %> says: <br></li>
+    <%= comment.content %>
+<% end %>
+</ul>
+<h1>Leave Comment</h1>
+<%= render partial: "comments/form", locals: {comment: @place.comments.new} %>
+
+
+
+
+
 <h1><%= @place.name %></h1>
 <h4><%= @place.destination.full_info %></h4>

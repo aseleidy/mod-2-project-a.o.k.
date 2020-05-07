@@ -1,0 +1,4 @@
+<% @comments.each do |comment| %>
+    <strong><%=User.find(comment[:user_id]).username %></strong> says: <br>
+    <%= comment.content %><br>
+<% end %>
