@@ -2,6 +2,8 @@ class Comment < ApplicationRecord
     belongs_to :place
     belongs_to :user
 
+    validate_presence_of :content
+
 
     # def name= 
     #     if self.name == nil 
