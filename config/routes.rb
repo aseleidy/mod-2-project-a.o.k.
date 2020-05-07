@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :destinations, only: [:index, :show, :new, :create]
   resources :places, only: [:new, :create, :show] do
     resources :comments
-
   end
   resources :users
   resources :itineraries do
@@ -15,6 +14,4 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   get '/itineraries/:id/like', to: 'itineraries#like', as: 'itinerary_like'
   get '/destinations/:id/like', to: 'destinations#like', as: 'destination_like'
-
-
 end
