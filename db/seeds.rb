@@ -8,14 +8,16 @@
 
 Destination.destroy_all
 
-Destination.create(city: "New York", country: "United States")
-Destination.create(city: "Chicago", country: "United States")
-Destination.create(city: "Miami", country: "United States")
-Destination.create(city: "Los Angeles", country: "United States")
-Destination.create(city: "Orlando", country: "United States")
-Destination.create(city: "Boston", country: "United States")
-Destination.create(city: "Cartagena", country: "Colombia")
-Destination.create(city: "Paris", country: "France")
-Destination.create(city: "Madrid", country: "Spain")
-Destination.create(city: "Rome", country: "Italy")
-Destination.create(city: "Buenos Aires", country: "Argentina")
+Destination.create(city: "New York", country: "United States", likes: 0)
+Destination.create(city: "Chicago", country: "United States", likes: 0)
+Destination.create(city: "Miami", country: "United States", likes: 0)
+Destination.create(city: "Los Angeles", country: "United States", likes: 0)
+Destination.create(city: "Orlando", country: "United States", likes: 0)
+Destination.create(city: "Boston", country: "United States", likes: 0)
+Destination.create(city: "Cartagena", country: "Colombia", likes: 0)
+Destination.create(city: "Paris", country: "France", likes: 0)
+Destination.create(city: "Madrid", country: "Spain", likes: 0)
+Destination.create(city: "Rome", country: "Italy", likes: 0)
+Destination.create(city: "Buenos Aires", country: "Argentina", likes: 0)
+
+

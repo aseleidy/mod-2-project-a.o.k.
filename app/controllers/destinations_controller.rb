@@ -1,6 +1,7 @@
 class DestinationsController < ApplicationController 
   def index 
     @destinations = Destination.all
+    current_user
   end 
 
   def show

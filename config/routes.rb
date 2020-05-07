@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :destinations, only: [:index, :show, :new, :create]
-  resources :places, only: [:new, :create]
+  resources :places, only: [:new, :create, :show]
   resources :users
   resources :itineraries do
     resources :places

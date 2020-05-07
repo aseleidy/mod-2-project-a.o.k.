@@ -1,16 +1,31 @@
+<h1>Create a New Place</h1>
+
+<% if place.errors.any? %>
+  <p style="color: red">Invalid! The following <%= pluralize(place.errors.count, "error") %> need to be fixed to create a new place.</p>
+  <% place.errors.full_messages.each do |message| %>
+    <ul>
+      <p style="color: red"><%= message %></p>
+    </ul>
+  <% end %>
+<% end %>
+
 <%= form_for place do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :category, "Category:" %>
+  <%= f.select :category, options_for_select(["Attraction", "Bar", "Restaurant", "Other"]) %><br><br>
+   <!--
    <select name="category" id="category">
     <option value="bar">Bar</option>
     <option value="restaurant">Restaurant</option>
     <option value="attraction">Attraction</option>
     <option value="other">Other</option>
-   </select>
+   </select><br><br>
+   -->
   <%= f.label :url, "Place URL" %> 
-  <%= f.text_field :url %>
+  <%= f.text_field :url %><br><br>
   <%= f.label :img_url, "Image URL" %> 
-  <%= f.text_field :img_url %> 
+  <%= f.text_field :img_url %><br><br> 
   <%= f.hidden_field :identify, value: itin.id %>
   <%= f.submit "Create Place" %>
   <% end %>

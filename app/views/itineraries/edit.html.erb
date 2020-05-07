@@ -1,0 +1,12 @@
+<h1>Edit Itinerary</h1>
+<%= form_for @itinerary do |f| %>
+  <%= f.label :title, "Title:" %>
+  <%= f.text_field :title %><br>
+  <p>Destination: <%= @itinerary.destination.full_info %></p>
+  <%= f.label :place_ids, "Places (add more):" %>
+  <%= f.collection_check_boxes :place_ids, @itinerary.destination.places, :id, :name %><br><br>
+  <%= link_to "Create New Place", new_itinerary_place_path(@itinerary) %><br><br>
+  <%= f.label :user_ids, "Fellow Travelers" %>
+  <%= f.collection_check_boxes :user_ids, User.all, :id, :username %><br><br>
+  <%= f.submit "Edit Itinerary" %>
+<% end %>
