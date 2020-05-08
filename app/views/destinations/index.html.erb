@@ -1,4 +1,4 @@
-<h1>Destinations</h1>
+<h2>Destinations</h2>
 <% @destinations.each do |dest| %>
   <ul>
     <li>
@@ -12,25 +12,27 @@ at the top of the page that says "most popular," which just directs the screen t
 
 It became clear that if we only sorted the index by popularity, then if there is no itinerary linked to a destination, the destination won't show up. It makes the most sense
 to have the sorted list either here or on it's own route. -->
-<h1>Most Popular Destinations:</h1>
+<h2>Most Popular Destinations:</h2>
 <ul>
 <% Destination.most_popular.each do |destination| %>
   <li><%= link_to destination.full_info, destination %></li><br>
 <% end %>
 </ul>
+<h2>Most Liked Destinations: </h2>
 <ul>
-<h1>Most Liked Destinations: </h1>
   <% Destination.most_liked.each do |destination| %>
   <li><%= link_to destination.full_info, destination %></li><br>
 <% end %>
 </ul>
 
-<ul><h1>Trending Destinations:</h1>
+<h2>Trending Destinations:</h2>
+<ul>
 <% if Comment.all.count > 0 %>
   <% Destination.trending.each do |destination| %>
     <li><%= link_to destination.full_info, destination %></li><br>
   <% end %>
 <% end %>
+</ul>
 
 <!-- trending destinations is based on recent comment count. 
 Of the most recent 20 percent of comments, the destinations are listed by the ones with the most comment hits. -->
