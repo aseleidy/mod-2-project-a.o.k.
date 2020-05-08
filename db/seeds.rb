@@ -11,21 +11,21 @@ Place.destroy_all
 Comment.destroy_all
 #User.destroy_all
 Itinerary.destroy_all
-ItineraryPlaces.destroy_all
+ItineraryPlace.destroy_all
 UserItinerary.destroy_all
 
 
-Destination.create(city: "New York", country: "United States", likes: rand(100))
-Destination.create(city: "Chicago", country: "United States", likes: rand(100))
-Destination.create(city: "Miami", country: "United States", likes: rand(100))
-Destination.create(city: "Los Angeles", country: "United States", likes: rand(100))
-Destination.create(city: "Orlando", country: "United States", likes: rand(100))
-Destination.create(city: "Boston", country: "United States", likes: rand(100))
-Destination.create(city: "Cartagena", country: "Colombia", likes: rand(100))
-Destination.create(city: "Paris", country: "France", likes: rand(100))
-Destination.create(city: "Madrid", country: "Spain", likes: rand(100))
-Destination.create(city: "Rome", country: "Italy", likes: rand(100))
-Destination.create(city: "Buenos Aires", country: "Argentina", likes: rand(100))
+Destination.create(city: "New York", country: "United States", likes: rand(1000))
+Destination.create(city: "Chicago", country: "United States", likes: rand(1000))
+Destination.create(city: "Miami", country: "United States", likes: rand(1000))
+Destination.create(city: "Los Angeles", country: "United States", likes: rand(1000))
+Destination.create(city: "Orlando", country: "United States", likes: rand(1000))
+Destination.create(city: "Boston", country: "United States", likes: rand(1000))
+Destination.create(city: "Cartagena", country: "Colombia", likes: rand(1000))
+Destination.create(city: "Paris", country: "France", likes: rand(1000))
+Destination.create(city: "Madrid", country: "Spain", likes: rand(1000))
+Destination.create(city: "Rome", country: "Italy", likes: rand(1000))
+Destination.create(city: "Buenos Aires", country: "Argentina", likes: rand(1000))
 
 
 

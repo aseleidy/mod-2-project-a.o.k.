@@ -28,6 +28,8 @@ Image:
 <% @place.comments.each do |comment|%>
     <li><%= User.find(comment.user_id).username %> says: <br></li>
     <%= comment.content %>
+    <%=link_to "Edit", edit_place_comment_path(comment) %>
+    <%=link_to "Delete", [@place, comment], method: :delete %>
 <% end %>
 </ul>
 <h1>Leave Comment</h1>
