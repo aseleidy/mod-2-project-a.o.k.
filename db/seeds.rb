@@ -9,6 +9,10 @@
 Destination.destroy_all
 Place.destroy_all
 Comment.destroy_all
+#User.destroy_all
+Itinerary.destroy_all
+ItineraryPlaces.destroy_all
+UserItinerary.destroy_all
 
 
 Destination.create(city: "New York", country: "United States", likes: rand(100))
@@ -42,7 +46,7 @@ end
 
 
 def populate_comments
-    statements = ["This is a good place.", "This place is terrible.", "This place gave me food poisoning.", "I demanded to see the manager SIX TIMES.", "I love this place!", "There is no god but there are three Hells. You don't have to worry about the first two, you will never see them. You are going to the third. The third is this restaurant.", "This is the best restaurant in the universe.", "the pizza was ok.", "Happiness! Free! For everyone! And let no one be forgotten.", "Goodness. You have to make it out of badness, because there's nothing else to make it from. Anyway the food here is alright."]
+    statements = ["This is a good place.", "This place is terrible.", "This place gave me food poisoning.", "I demanded to see the manager SIX TIMES.", "I love this place!", "There is no god but there are three Hells. You don't have to worry about the first two, you will never see them. You are going to the third. The third is this restaurant.", "This is the best restaurant in the universe.", "the pizza was ok.", "Happiness! Free! For everyone! And let no one be forgotten.", "Goodness. You have to make it out of badness, because there's nothing else to make it from. Anyway the food here is good."]
     Comment.create!(place_id: Place.ids.sample, content: statements.sample, user_id: User.ids.sample)
 end
 
