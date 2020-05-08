@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     end
     
     def index
+        set_user
         @comments = Comment.all 
     end
 
@@ -57,6 +58,10 @@ class CommentsController < ApplicationController
     def place_params
         params.require(:comment).permit(:place_id)
     end 
+
+    def set_user 
+        @current_user = current_user
+    end
     
     def comment_params
         params.require(:comment).permit(:content)
