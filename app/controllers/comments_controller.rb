@@ -1,21 +1,24 @@
 class CommentsController < ApplicationController 
-    
+
     def new
-       # @itinerary = Itinerary.find(params[:itinerary_id])
-        @place = Place.find(params[:place_id])
+        set_place
         @comment = Comment.new
     end
     
     def index
+        set_user
         @comments = Comment.all 
     end
 
-    def edit 
-        set_comment
+    def edit
+        @comment = Comment.find(params[:place_id])
+        @place = Place.find(params[:id])
+
     end
 
-    def update 
+    def update
         set_comment
+        set_place
         @comment.update(comment_params)
         redirect_to @place
     end
@@ -24,8 +27,9 @@ class CommentsController < ApplicationController
         set_comment
     end
 
-    def delete 
+    def destroy
         set_comment
+        set_place
         # if current_user.id = @comment.user_id
             @comment.destroy
         # else
@@ -43,16 +47,22 @@ class CommentsController < ApplicationController
     end 
 
     private
+    def set_place
+        @place = Place.find(params[:place_id])
+    end
 
     def set_comment
         @comment = Comment.find(params[:id])
     end
-#############################################
+
     def place_params
         params.require(:comment).permit(:place_id)
     end 
-##############################################
-#I have *no idea* how the above works but it looks like it was kyle's code for figuring out the itinerary parameter, so I adapted it and am testing it for comments.
+
+    def set_user 
+        @current_user = current_user
+    end
+    
     def comment_params
         params.require(:comment).permit(:content)
     end 

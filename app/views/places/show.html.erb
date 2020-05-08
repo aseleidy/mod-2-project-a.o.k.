@@ -10,26 +10,30 @@ t.string :img_url
 <h4>Likes: <%= @place.likes %></h4>
 
 <% if @place.url != "" %>
-  <h4><%= link_to "Website", @place.url %></h4><br><br>
+  <h4><%= link_to "Website", @place.url %></h4>
 <% end %>
+<h4>Category: <%= @place.category %></h4>
 
-<img src="<%= @place.img_url %>" alt="<%= @place.destination.city %> pic">
+<img class="image-gallery" src="<%= @place.img_url %>" alt="<%= @place.destination.city %> pic">
 
 <br>
 <%= link_to "Like", place_like_path(@place) %>
-<h4><%= @place.destination.full_info %></h4>
-Category:
-<%= @place.category %><br>
-Url:
-<%= @place.url %>
-Image:
+
 
 <ul>
 <% @place.comments.each do |comment|%>
-    <li><%= User.find(comment.user_id).username %> says: <br></li>
+  <br>
+    <li id="comment-name"><%= User.find(comment.user_id).username %> says:</li>
     <%= comment.content %>
-<% end %>
+    <% if comment.user_id == @current_user.id %>
+      <%=link_to "Edit", edit_place_comment_path(comment) %>
+      <%=link_to "Delete", [@place, comment], method: :delete %>
+    
+        <% end %>
+        <br>
+      <% end %>
 </ul>
-<h1>Leave Comment</h1>
+<br>
+<h3>Leave Comment</h3>
 <%= render partial: "comments/form", locals: {comment: @place.comments.new} %>
 
