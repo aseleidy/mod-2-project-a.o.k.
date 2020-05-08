@@ -14,7 +14,94 @@
  *= require_self
  */
 
- h1, h4 {
+ h1 {
    text-align: center;
    color: black;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
  }
+
+ body {
+   padding:15px;
+ }
+ h2, h3, p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
+
+ #mantra {
+   text-align: center;
+   font-style: italic ;
+ }
+
+ background-color {
+   color: whitesmoke;
+ }
+
+ a {
+   color: grey
+ }
+
+ .nav ul {
+   list-style: none;
+   text-align: right;
+ }
+
+ .nav li {
+  display: inline-block;
+ }
+
+ .nav a {
+ text-decoration: none;
+ }
+
+ #logout {
+   float: right
+ }
+
+
+ .button input {
+  background-color: grey; 
+ border: none;
+ color: white;
+ padding: 8px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+  font-size: 14px;
+}
+
+.itin {
+  outline: 0.5rem solid black;
+  border-radius: 12px;
+  font: bold 1rem sans-serif;
+  margin: 2rem;
+  padding: 1rem;
+  outline-offset: 0.5rem;
+}
+
+#itinaddlink a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.home {
+  background-image: url(https://cdn.shopify.com/s/files/1/0701/7993/files/bold-tuesday-sold-to-map_2048x.gif?v=1542602047);
+}
+
+.logbox {
+text-align: center;
+background-color: rgba(0, 12, 117, 0.459);
+padding: 30px;
+width: 200px;
+display: inline-block;
+color:white
+}
+
+#special a {
+  color: white
+}
+.wrapper {
+  text-align: center;
+}
