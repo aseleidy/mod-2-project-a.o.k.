@@ -20,9 +20,9 @@ class Destination < ApplicationRecord
 
   def most_popular_places 
     places_popularity = self.places.sort_by do |place|
-      place.itineraries.count
+      place.likes
     end 
-    places_popularity.last(10)
+    places_popularity.reverse.first(10)
   end 
 
   def self.most_popular
@@ -33,16 +33,12 @@ class Destination < ApplicationRecord
     sorted_destinations.reverse
   end 
 
-
   def self.most_liked
     sorted_destinations = Destination.all.sort_by do |dest|
       dest.likes 
     end
     sorted_destinations.reverse
   end
-
-
-
 
   def trending_places
     place_array = []
@@ -55,10 +51,6 @@ class Destination < ApplicationRecord
     end
     place_array.uniq
   end
-# end
-
-
-
 
   def self.trending
     twenty_percent = Comment.all.count * 0.2 + 1
@@ -82,4 +74,3 @@ class Destination < ApplicationRecord
     destination_hash.keys
   end
 end
-#I don't know why the above isn't working but it's getting convoluted and needs to be refactored and picked up later. Losing sight of my own reasoning.

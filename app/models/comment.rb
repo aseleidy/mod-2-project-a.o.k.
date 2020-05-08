@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
     belongs_to :place
     belongs_to :user
 
-    validate_presence_of :content
+    validates_presence_of :content
 
 
     # def name= 
