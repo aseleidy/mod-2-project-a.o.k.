@@ -1,4 +1,8 @@
 <% @comments.each do |comment| %>
-    <strong><%=User.find(comment[:user_id]).username %></strong> says: <br>
-    <%= comment.content %><br>
+    <% if @current_user.id == comment.user_id %>
+        <%=link_to Place.find(comment.place_id.name), place_path(Place.find(comment.place_id)) %><br>
+        <%= comment.content %> <br>
+        <%=link_to "Edit", edit_place_comment_path(comment) %>
+        <%=link_to "Delete", [Place.find(comment.place_id), comment], method: :delete %>
+    <% end %>
 <% end %>
