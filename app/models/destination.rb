@@ -42,8 +42,8 @@ class Destination < ApplicationRecord
 
   def trending_places
     place_array = []
+    #plus one to ensure it doesn't round down to 0
     twenty_percent = self.comments.count * 0.2 + 1
-    #plus one to ensure it doesn't round down to 0.
     twenty_percent = twenty_percent.round
     recent_twenty_comments = self.comments.reverse.slice(1, twenty_percent)
     recent_twenty_comments.each do |comment|
@@ -53,8 +53,8 @@ class Destination < ApplicationRecord
   end
 
   def self.trending
+    #plus one to ensure it doesn't round down to 0
     twenty_percent = Comment.all.count * 0.2 + 1
-    #plus one to ensure it doesn't round down to 0.
     destinations = []
     places = []
     most_recent_comments = Comment.all.reverse.slice(1, twenty_percent)

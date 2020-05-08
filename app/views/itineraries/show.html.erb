@@ -7,13 +7,9 @@
 <br>
 <h4 class="image-titles"> Your Itinerary </h4>
 <% @itinerary.places.each do |place| %> 
-  <% if place.url == "" %>
-    <p class="image-titles"><%= place.name %></p>
-  <% else %>
-    <p class="image-titles"><%= link_to place.name, place %></p>
-  <% end %>
+  <p class="image-titles"><%= link_to place.name, place_path(place) %></p>
   <img class="image-gallery" src="<%=place.img_url%>" alt="Image of <%=place.name%>">
-  <% end %>
+<% end %>
   
   <br>
 
@@ -24,14 +20,14 @@
     <img class="image-gallery" src="<%= place.img_url %>" alt="<%= place.destination.city %> pic">
   <% end %>
 <% else %>
-  <h4>Looks like there aren't any additional recommended places for <%= @itinerary.destination.city %>...</h4>
+  <h4 class="image-titles">Looks like there aren't any additional recommended places for <%= @itinerary.destination.city %>...</h4>
 <% end %>
 
 <% if @itinerary.most_popular_places_not_included_from_most_popular_category(@itinerary.most_popular_category) != [] %>
-  <h4>Seems you really like <%= @itinerary.most_popular_category.downcase %>s! Check out some of these popular spots:</h4>
+  <h4 class="image-titles">Seems you really like <%= @itinerary.most_popular_category.downcase %>s! Check out some of these popular spots:</h4>
   <% @itinerary.most_popular_places_not_included_from_most_popular_category(@itinerary.most_popular_category).each do |place| %>
-    <img src="<%= place.img_url %>" alt="<%= place.name %> pic">
-    <%= link_to place.name, place_path(place) %>
+    <p class="image-titles"><%= link_to place.name, place_path(place) %></p>
+    <img class="image-gallery" src="<%= place.img_url %>" alt="<%= place.name %> pic">
   <% end %>
 <% end %>
 

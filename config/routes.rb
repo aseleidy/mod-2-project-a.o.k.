@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :itineraries do
     resources :places 
   end
-  # resources :comments 
+   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

@@ -1,6 +1,6 @@
 <%= form_for [@place, comment] do |f| %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <h3><%= f.label :content, "Leave a Comment:" %><br></h3>
+    <%= f.text_area :content %><br>
     <%= f.submit "Post Comment" %>
 <% end %>
 

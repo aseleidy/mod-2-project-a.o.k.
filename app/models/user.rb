@@ -8,10 +8,10 @@ class User < ApplicationRecord
   validates_uniqueness_of :username, :email
   has_secure_password
 
-  #returns array of people you have travelled with
+  # Returns array of people you have travelled with
   def travel_buddies
     itin = self.itineraries
-    
+
     travelers = itin.map do |i|
       i.users
     end

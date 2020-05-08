@@ -7,6 +7,6 @@ class Place < ApplicationRecord
   
   before_validation :set_likes_to_zero
   validates_presence_of :name, :category, :img_url
-  validates_uniqueness_of :name, :url
+  validates_uniqueness_of :name
 
 end
