@@ -5,7 +5,7 @@
 <br>
 <strong><p id="itinaddlink"><%= link_to "+ Itinerary", new_itinerary_path %></p></strong>
 <br>
-<p>Active Itineraries:</p>
+<h4>Active Itineraries:</h4>
 <% @user.itineraries.each do |itin| %>
   <ul>
     <li>
@@ -14,13 +14,15 @@
   </ul>
 <% end %>
 
-<p>Travel Buddies</p>
-<p> here are all your travel buddies! </p>
+<% if @user.travel_buddies != [] %>
+<h4> Here are all your travel buddies: </h4>
 <% @user.travel_buddies.each do |bud| %>
   <ul>
   <li> <%= bud.first_name %> </li>
   </ul>
   <% end %>
+  <% end %>
+
   
 
 
