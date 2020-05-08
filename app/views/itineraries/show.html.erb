@@ -2,22 +2,26 @@
 <h4>Destination: <%= link_to @itinerary.destination.full_info, destination_path(@itinerary.destination) %></h4>
 <h4>Travelers: <%= @itinerary.fellow_traveler_first_names %></h4>
 <h4>Likes: <%= @itinerary.likes %></h4>
+<%= link_to "Like", itinerary_like_path %><br><br>
+<%= link_to "Add Places/Edit Itinerary", edit_itinerary_path(@itinerary) %>
 <br>
+<h4 class="image-titles"> Your Itinerary </h4>
 <% @itinerary.places.each do |place| %> 
   <% if place.url == "" %>
-    <p><%= place.name %></p>
+    <p class="image-titles"><%= place.name %></p>
   <% else %>
-    <p><%= link_to place.name, place %></p>
+    <p class="image-titles"><%= link_to place.name, place %></p>
   <% end %>
-  <img class="place-images" src="<%=place.img_url%>" alt="Image of <%=place.name%>">
+  <img class="image-gallery" src="<%=place.img_url%>" alt="Image of <%=place.name%>">
   <% end %>
+  
   <br>
 
 <% if @itinerary.recommended_places != [] %>
-  <h4>Recommended Places for <%= @itinerary.destination.city %></h4>
+  <h4 class="image-titles">Recommended Places for <%= @itinerary.destination.city %></h4>
   <% @itinerary.recommended_places.each do |place| %>
-    <img src="<%= place.img_url %>" alt="<%= place.destination.city %> pic">
-    <%= link_to place.name, place_path(place) %>
+    <p class="image-titles">  <%= link_to place.name, place_path(place) %></p>
+    <img class="image-gallery" src="<%= place.img_url %>" alt="<%= place.destination.city %> pic">
   <% end %>
 <% else %>
   <h4>Looks like there aren't any additional recommended places for <%= @itinerary.destination.city %>...</h4>
@@ -32,6 +36,5 @@
 <% end %>
 
 
-<%= link_to "Like", itinerary_like_path %><br>
-<%= link_to "Add Places/Edit Itinerary", edit_itinerary_path(@itinerary) %><br>
+
 <%= link_to "Delete Itinerary", itinerary_path, method: "delete" %><br>
