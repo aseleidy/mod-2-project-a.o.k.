@@ -7,26 +7,28 @@
 <%= link_to "Like", destination_like_path %>
 
 
-<p>Recent Itineraries:</p>
+<!--
+ <h4>Recent Itineraries:</h4>
   <ul>
-    <% @destination.five_itineraries.each do |itin| %>
+    <%  @destination.five_itineraries.each do |itin| %>
       <div class="recent-itineraries">
         <%= link_to itin.title, itinerary_path(itin) %>
       </div>
-    <% end %>
+  <% end %>
   </ul>
+  -->
 <br><br>
-<p>Most Popular Places:</p>
+<h4 class="image-titles">Most Popular Places:</h4>
   <% @destination.most_popular_places.each do |place| %>
-    <img src="<%= place.img_url %>" alt="<%= @destination.city %> pic">
-    <%= link_to place.name, place %>
+    <p class="image-titles"><%= link_to place.name, place %></p>
+    <img class="image-gallery" src="<%= place.img_url %>" alt="<%= @destination.city %> pic">
   <% end %>
 
 
-  <p>Trending Places:</p>
+  <h4 class="image-titles">Trending Places:</h4>
     <% if @destination.comments.count > 1 %>
       <% @destination.trending_places.each do |place| %>
-        <img src="<%= place.img_url %>" alt="<%= @destination.city %> pic"><br>
-        <%= link_to place.name, place %><br>
+        <p class="image-titles"> <%= link_to place.name, place %></p>
+        <img class="image-gallery" src="<%= place.img_url %>" alt="<%= @destination.city %> pic"><br>
       <% end %>
   <% end %>
