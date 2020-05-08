@@ -1,7 +1,7 @@
 <h1>Create a New Place</h1>
 
 <% if place.errors.any? %>
-  <p style="color: red">Invalid! The following <%= pluralize(place.errors.count, "error") %> need to be fixed to create a new place.</p>
+  <p style="color: red">Invalid! The following <%= pluralize(place.errors.count, "error") %> must be fixed to create a new place.</p>
   <% place.errors.full_messages.each do |message| %>
     <ul>
       <p style="color: red"><%= message %></p>
@@ -27,5 +27,5 @@
   <%= f.label :img_url, "Image URL" %> 
   <%= f.text_field :img_url %><br><br> 
   <%= f.hidden_field :identify, value: itin.id %>
-  <%= f.submit "Create Place" %>
+  <div class="button"><%= f.submit "Create Place" %></div>
   <% end %>

@@ -8,5 +8,5 @@
   <%= link_to "Create New Place", new_itinerary_place_path(@itinerary) %><br><br>
   <%= f.label :user_ids, "Fellow Travelers" %>
   <%= f.collection_check_boxes :user_ids, User.all, :id, :username %><br><br>
-  <%= f.submit "Edit Itinerary" %>
+  <div class="button"><%=  f.submit "Edit Itinerary" %> </div>
 <% end %>

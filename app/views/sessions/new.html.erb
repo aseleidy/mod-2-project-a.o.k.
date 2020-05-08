@@ -1,16 +1,26 @@
+
+<div class="wrapper">
+<div class="home">
 <h1>Welcome to Travel Planner!</h1>
 <br>
 <p style="color: red"><%= flash[:message] %></p>
 <br>
+<div class="logbox">
 <%= form_tag login_path do %>
-  <%= label_tag :username, "Username:" %>
-  <%= text_field_tag :username %><br>
-  <br>
-  <%= label_tag :password, "Password:" %>
-  <%= password_field_tag :password %><br>
-  <br>
-  <%= submit_tag "Sign In"%>
+  <p><%= label_tag :username, "Username:" %></p>
+  <p><%= text_field_tag :username %></p>
 
+  <p><%= label_tag :password, "Password:" %></p>
+  <p><%= password_field_tag :password %><p/><br>
+
+  <div class="button">
+  <%= submit_tag "Sign In"%>
+  </div>
 <% end %> 
 <br>
-<p>If you are a new user, please <%= link_to "create an account", new_user_path %>.</p>
+<p id="special">If you are a new user, please <%= link_to "create an account", new_user_path %>.</p>
+</div>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>

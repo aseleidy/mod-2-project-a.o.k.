@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_authorization
+  before_action :require_authorization, except: [:new, :create]
 
   def show 
     find_user
