@@ -34,8 +34,8 @@ def populate_places
     place_names = ["The Frozen Hearth", "Sleeping Giant Inn", "The Drunken Huntsman", "The Bannered Mare", "Old Hroldan Inn", "The Bee And Barb", "Lucky 38", "The Tops", "Brotherhood of Steel Safehouse", "Dino Dee-lite Motel"]
     url_array = ["test"]
     category_array = ["attraction", "bar", "restaurant", "other"]
-    img_url_array = ["https://upload.wikimedia.org/wikipedia/commons/c/c3/AA78_by_Zdzislaw_Beksinski_1978.jpg", "https://giordanos.com/wp-content/uploads/Hero-image_1210-v2.jpg", "https://cdn.choosechicago.com/uploads/2019/05/bean_dawn_5d5624c9-38bc-42c6-a0bc-3b84be7dca9b.jpg", "https://cdn.cnn.com/cnnnext/dam/assets/170606121035-greece---travel-destination---shutterstock-560829934.jpg", "https://cdn.vox-cdn.com/thumbor/4xm9IPCjtYVBOkY7eykQVO8_Kgk=/0x0:1648x1099/1820x1213/filters:focal(693x419:955x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/60077045/girl_goat_facebook.0.jpg"]
-    Place.create!(name: "#{place_names.sample}#{Place.all.count}", category: category_array.sample, url: "www.test#{Place.all.count}.com", img_url: img_url_array.sample, destination_id: Destination.ids.sample)
+    img_url_array = ["https://upload.wikimedia.org/wikipedia/commons/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lake_Bondhus_Norway_2862.jpg/2880px-Lake_Bondhus_Norway_2862.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/480px-Mostar_Old_Town_Panorama_2007.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sikh_pilgrim_at_the_Golden_Temple_%28Harmandir_Sahib%29_in_Amritsar%2C_India.jpg/2880px-Sikh_pilgrim_at_the_Golden_Temple_%28Harmandir_Sahib%29_in_Amritsar%2C_India.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Locomotives-Roundhouse2.jpg/2560px-Locomotives-Roundhouse2.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Broadway_tower_edit.jpg/480px-Broadway_tower_edit.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/New_York_City_at_night_HDR.jpg/2880px-New_York_City_at_night_HDR.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c3/AA78_by_Zdzislaw_Beksinski_1978.jpg", "https://giordanos.com/wp-content/uploads/Hero-image_1210-v2.jpg", "https://cdn.choosechicago.com/uploads/2019/05/bean_dawn_5d5624c9-38bc-42c6-a0bc-3b84be7dca9b.jpg", "https://cdn.cnn.com/cnnnext/dam/assets/170606121035-greece---travel-destination---shutterstock-560829934.jpg", "https://cdn.vox-cdn.com/thumbor/4xm9IPCjtYVBOkY7eykQVO8_Kgk=/0x0:1648x1099/1820x1213/filters:focal(693x419:955x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/60077045/girl_goat_facebook.0.jpg"]
+    Place.create!(name: "#{place_names.sample}#{Place.all.count}", category: category_array.sample, url: "www.test#{Place.all.count}.com", img_url: img_url_array.sample, destination_id: Destination.ids.sample, likes: rand(1000))
 end
 
 # t.string :name
@@ -68,7 +68,7 @@ end
 
 def populate_itineraries
     title_array = ["Roadside Picnic", "Weekend with the fam", "Ashley's Birthday Bash", "The House Always Wins",  "Sightseeing adventure"]
-    Itinerary.create!(title: title_array.sample, destination_id: Destination.ids.sample)
+    Itinerary.create!(title: title_array.sample, destination_id: Destination.ids.sample, likes: rand(10))
 end
 
 # t.string :title
