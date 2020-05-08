@@ -89,6 +89,9 @@ end
 
 50.times do populate_users
 end
+User.all.each do |user|
+    user.update!({first_name: user.username.tr("0-9", "")})
+end
 100.times do populate_places
 end
 500.times do populate_comments

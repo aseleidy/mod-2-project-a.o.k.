@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/itineraries/:id/like', to: 'itineraries#like', as: 'itinerary_like'
   get '/destinations/:id/like', to: 'destinations#like', as: 'destination_like'
   get '/places/:id/like', to: 'places#like', as: 'place_like'
+  get '/users/:user_id/comments', to: 'comments#index'
 end
